@@ -19,15 +19,28 @@ public class AuthorizationService {
     String client_secret = "8b421e25e6b44a65940a041c55c72bd6";
     String redirect_uri = "https://spotifywrappedultimate.herokuapp.com/callback";
     String scope_user = "user-read-private%20user-read-email%20user-top-read";
+    String state;
+
 
     //The start of our website
     public ResponseEntity login() throws URISyntaxException {
         //Authorization url format
+        int left = 97; // letter 'a'
+        int right = 122; // letter 'z'
+        int targetStringLength = 16;
+        Random random = new Random();
+
+        state = random.ints(left, right + 1)
+                .limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+
         String url = "https://accounts.spotify.com/authorize?"
                 + "client_id=" + client_id
                 + "&response_type=code&"
                 + "redirect_uri=" + redirect_uri
                 + "&scope=" + scope_user
+                + "&state=" + state
                 + "&show_dialog=true";
 
         URI uri = new URI(url);
