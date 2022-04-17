@@ -1,6 +1,7 @@
 package com.Wesley.SpotifyWrappedUltimate.All.Controllers;
 
 import com.Wesley.SpotifyWrappedUltimate.All.Services.AuthorizationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -12,12 +13,8 @@ import java.net.*;
 @RestController
 public class Authorization {
 
-    final
+    @Autowired
     AuthorizationService auth;
-
-    public Authorization(AuthorizationService auth) {
-        this.auth = auth;
-    }
 
     @GetMapping("/login")
     public ResponseEntity login() throws URISyntaxException {

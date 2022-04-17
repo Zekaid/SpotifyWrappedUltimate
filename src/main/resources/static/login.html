@@ -4,49 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>Spotify Wrapped</title>
 
 <body>
-<div id = "first">
+<div id="first">
     <h1 id="title">Spotify Wrapped Ultimate</h1>
 </div>
 
-<div id = "second">
-    <button id ="log" class="cybr-btn" onclick="start();">
+<div id="second">
+    <button id="log" class="cybr-btn" onclick="start();">
         Login
         <span aria-hidden class="cybr-btn__glitch">Login</span><span aria-hidden class="cybr-btn__tag">000</span>
     </button>
-    <div>
-
+</div>
 </body>
-
-<script>
-    function start(){
-        window.location.pathname = "/login"
-        document.getElementById("log").style.display = "none"
-        document.getElementById("title").style.display = "none"
-    }
-    function run(){
-        document.getElementById("btn1").style.display = "none"
-        fetch("/api/top/tracks").then(r => r.json()).
-        then(data => append(data))
-        //document.getElementById("demo").innerHTML = JSON.stringify(data))
-    }
-
-    function hide(){
-        document.getElementById("demo").innerHTML = ""
-    }
-
-    function append (data){
-        let mainContainer = document.getElementById("demo");
-        for (let i = 0; i < data.length; i++) {
-            let div = document.createElement("div");
-            div.innerHTML = data[i].artist + ": " + data[i].track;
-            mainContainer.appendChild(div);
-        }
-        mainContainer.style.display = "inline";
-    }
-</script>
 
 </head>
 </html>

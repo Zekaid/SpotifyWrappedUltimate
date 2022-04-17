@@ -1,6 +1,7 @@
 package com.Wesley.SpotifyWrappedUltimate.All.Controllers;
 
 import com.Wesley.SpotifyWrappedUltimate.All.Services.AuthorizationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,12 +33,8 @@ class Pair {
 @RestController
 public class TopTracks {
 
-    final
+    @Autowired
     AuthorizationService auth;
-
-    public TopTracks(AuthorizationService auth) {
-        this.auth = auth;
-    }
 
     @RequestMapping(path = "/api/top/tracks", produces = MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8", method = RequestMethod.GET)
     public ResponseEntity<ArrayList<Pair>> Metadata(RestTemplate rest_template) {

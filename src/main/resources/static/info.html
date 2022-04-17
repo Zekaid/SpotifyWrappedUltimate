@@ -4,69 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>Spotify Wrapped</title>
 
 <body>
 
 <p id="demo"></p>
 
-<button id="btn1" class= "cybr-btn" onclick="run();">Top Tracks
-    <span aria-hidden class="cybr-btn__glitch">Top Tracks</span><span aria-hidden class="cybr-btn__tag">001</span></button>
-<button id="btn2" class= "cybr-btn" onclick="hide();">Go Back!
-    <span aria-hidden class="cybr-btn__glitch">Go Back!</span><span aria-hidden class="cybr-btn__tag">004</span></button>
-
-<button id="btn3" class= "cybr-btn" onclick="run2();">Top Artists
-    <span aria-hidden class="cybr-btn__glitch">Top Artists</span><span aria-hidden class="cybr-btn__tag">002</span></button>
-<button id="btn4" class= "cybr-btn" onclick="out();">Log Out
+<button id="btn1" class="cybr-btn" onclick="run();">Top Tracks
+    <span aria-hidden class="cybr-btn__glitch">Top Tracks</span><span aria-hidden class="cybr-btn__tag">001</span>
+</button>
+<button id="btn2" class="cybr-btn" onclick="hide();">Go Back!
+    <span aria-hidden class="cybr-btn__glitch">Go Back!</span><span aria-hidden class="cybr-btn__tag">004</span>
+</button>
+<button id="btn3" class="cybr-btn" onclick="run2();">Top Artists
+    <span aria-hidden class="cybr-btn__glitch">Top Artists</span><span aria-hidden class="cybr-btn__tag">002</span>
+</button>
+<button id="btn4" class="cybr-btn" onclick="out();">Log Out
     <span aria-hidden class="cybr-btn__glitch">Log Out</span><span aria-hidden class="cybr-btn__tag">003</span></button>
 
 </body>
-<script>
-    function out(){
-        window.location.pathname = "/logout"
-    }
-    function run2(){
-        document.getElementById("btn1").style.display = "none"
-        document.getElementById("btn2").style.display = "inline"
-        document.getElementById("btn3").style.display = "none"
-        fetch("/api/top/artists").then(r => r.json()).
-        then(data => append2(data))
-    }
 
-    function run(){
-        document.getElementById("btn1").style.display = "none"
-        document.getElementById("btn2").style.display = "inline"
-        document.getElementById("btn3").style.display = "none"
-        fetch("/api/top/tracks").then(r => r.json()).
-        then(data => append(data))
-        //document.getElementById("demo").innerHTML = JSON.stringify(data))
-    }
-
-    function hide(){
-        document.getElementById("demo").innerHTML = ""
-        document.getElementById("btn2").style.display = "none"
-        document.getElementById("btn1").style.display = "inline"
-        document.getElementById("btn3").style.display = "inline"
-    }
-
-    function append (data){
-        let mainContainer = document.getElementById("demo");
-        for (let i = 0; i < data.length; i++) {
-            let div = document.createElement("div");
-            div.innerHTML = data[i].artist + ": " + data[i].track;
-            mainContainer.appendChild(div);
-        }
-    }
-
-    function append2 (data){
-        let mainContainer = document.getElementById("demo");
-        for (let i = 0; i < data.length; i++) {
-            let div = document.createElement("div");
-            div.innerHTML = data[i].artist;
-            mainContainer.appendChild(div);
-        }
-    }
-</script>
 </head>
 <body>
 

@@ -1,6 +1,7 @@
 package com.Wesley.SpotifyWrappedUltimate.All.Controllers;
 
 import com.Wesley.SpotifyWrappedUltimate.All.Services.AuthorizationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,12 +28,8 @@ class Single {
 @RestController
 public class TopArtists {
 
-    final
+    @Autowired
     AuthorizationService auth;
-
-    public TopArtists(AuthorizationService auth) {
-        this.auth = auth;
-    }
 
     @GetMapping("/api/top/artists")
     public ResponseEntity<ArrayList<Single>> Metadata(RestTemplate rest_template){
