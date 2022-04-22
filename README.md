@@ -2,7 +2,7 @@
 
 **Spotify Wrapped Ultimate** is a RESTful web service that consumes Spotify's REST API to provide you with your top artists and tracks of all time! 
 
-Link to project: https://spotifywrappedultimate.herokuapp.com/
+Link to project: https://spotifywrappedultimate.herokuapp.com/ <br />
 Note: Due to how Heroku's dynos work, which needs to "wake up", it may take a while for the website to load on the very first try. 
 
 ## Tech Stack
