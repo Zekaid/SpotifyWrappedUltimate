@@ -6,8 +6,8 @@ Link to project: https://spotifywrappedultimate.herokuapp.com/
 
 ## Tech Stack
 
-Spring Boot 2.6.6
-Spring MVC
+* Spring Boot 2.6.6
+* Spring MVC
 Java 11
 HTML
 CSS
